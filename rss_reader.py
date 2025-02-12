@@ -98,6 +98,10 @@ def rss_parser(
                 for item in items
                 ],
         }
+
+        with open('data.json', 'w') as f:
+            _json.dump(result, f)
+            
         return [_json.dumps(result, indent=2)]
 
     return result_list + item_list
