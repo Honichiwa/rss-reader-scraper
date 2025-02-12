@@ -19,7 +19,7 @@ def rss_parser(
     Args:
         xml: XML document as a string.
         limit: Number of the news to return. if None, returns all news.
-        json_output: If True, format output as JSON.
+        json_output: If True, format output as JSON and saves it in data.json.
 
     Returns:
         List of strings.
@@ -101,7 +101,7 @@ def rss_parser(
 
         with open('data.json', 'w') as f:
             _json.dump(result, f)
-            
+
         return [_json.dumps(result, indent=2)]
 
     return result_list + item_list
