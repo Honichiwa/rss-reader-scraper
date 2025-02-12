@@ -119,6 +119,11 @@ def main(argv: Optional[Sequence] = None):
     )
 
     args = parser.parse_args(argv)
+
+    if args.source is None:
+        parser.print_help()
+        exit(1)
+    
     xml = requests.get(args.source).text
     try:
         print("".join(rss_parser(xml, args.limit, args.json)))
